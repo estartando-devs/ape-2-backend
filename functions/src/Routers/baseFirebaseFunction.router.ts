@@ -2,12 +2,16 @@ import { Request, Response } from "firebase-functions";
 import { IDB } from "../interfaces/db";
 
 export class BaseFirebaseFunctionRouter<T> {
-  constructor (private controller: IDB<T>) {}
+  constructor(private controller: IDB<T>) {}
 
-  async execute (request: Request, response: Response){
+  async execute(request: Request, response: Response) {
     let obj = {};
     const { body, params } = request;
     const id = params[0];
+
+    response.set("Access-Control-Allow-Origin", "*");
+    response.set("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS");
+    response.set("Access-Control-Allow-Headers", "*");
 
     switch (request.method) {
       case "DELETE":
