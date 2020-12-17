@@ -3,8 +3,8 @@ import { IDB } from "../interfaces/db";
 export class BaseController<T> {
   constructor(private domain: IDB<T>) {}
 
-  async save(_domain: T): Promise<T | Error> {
-    const response = await this.domain.save(_domain);
+  async save(body: T): Promise<T | Error> {
+    const response = await this.domain.save(body);
     return response;
   }
 
