@@ -18,6 +18,7 @@ export class UserController extends BaseController<IUser> {
     const { uid } = await admin.auth().createUser({
       email,
       password,
+      displayName: restUser.name,
     });
 
     const response = await this.user.save({ id: uid, email, ...restUser });
