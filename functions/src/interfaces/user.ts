@@ -10,8 +10,8 @@ type Gender =
   | "agenero";
 
 type UserExperience = {
-  sharedApHouse?: string;
-  sharedRoom?: string;
+  sharedApHouse?: boolean;
+  sharedRoom?: boolean;
   totalShared?: number;
   totalPeople?: number;
   timeSpent?: string;
@@ -38,7 +38,9 @@ export interface IUser {
   bio?: string;
   hobbies?: string[];
   interests?: string[];
-  ocupation?: string;
+  // ocupation?: string;
+  company: string;
+  college: string;
   experience?: UserExperience;
   goals: UserGoals;
 }
